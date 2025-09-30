@@ -1,10 +1,10 @@
 /* C:\GabeWebsite\styles.css */
 :root {
-    --primary-color: #333; /* Dark text/header */
-    --secondary-color: #f4f4f4; /* Light background for sections */
-    --accent-color: #007bff; /* Blue for hover/focus states */
-    --font-family: 'Arial', sans-serif;
-    --max-width: 1200px;
+    --primary-color: #333; /* Dark text/header */
+    --secondary-color: #f4f4f4; /* Light background for sections */
+    --accent-color: #007bff; /* Blue for hover/focus states */
+    --font-family: 'Arial', sans-serif;
+    --max-width: 1200px;
 }
 
 * {
@@ -59,8 +59,11 @@ body {
 
 /* Hero Section: Reduced Height */
 .hero {
-    height: 65vh; /* Reduced height for better visibility of content below */
-    **background: url(/images/hero.jpg) no-repeat center center/cover;**     display: flex;
+.hero {
+    height: 65vh; /* Reduced height for better visibility of content below */
+    /* 💥 CRITICAL FIX: Back to no leading slash or quotes. */
+    background: url(images/hero.jpg) no-repeat center center/cover;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
