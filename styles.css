@@ -60,8 +60,7 @@ body {
 /* Hero Section: Reduced Height */
 .hero {
     height: 65vh; /* Reduced height for better visibility of content below */
-    **background: url('images/hero.jpg') no-repeat center center/cover;**
-    display: flex;
+    **background: url(/images/hero.jpg) no-repeat center center/cover;**     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -108,4 +107,32 @@ section h2 {
     padding-bottom: 0.5rem;
 }
 
-section h
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+.section-alt {
+    background: var(--secondary-color);
+}
+
+/* -------------------- Portfolio Highlights -------------------- */
+.portfolio-grid {
+    /* Revised for 10 images: Uses 200px minimum width, ensuring 5 items fit nicely 
+       on a desktop line (5 columns) and scales down cleanly on smaller devices. */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 300px; /* Fixed height for consistent look */
+    object-fit: cover; /* Maintain
