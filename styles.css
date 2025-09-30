@@ -1,10 +1,10 @@
 /* C:\GabeWebsite\styles.css */
 :root {
-    --primary-color: #333; /* Dark text/header */
-    --secondary-color: #f4f4f4; /* Light background for sections */
-    --accent-color: #007bff; /* Blue for hover/focus states */
-    --font-family: 'Arial', sans-serif;
-    --max-width: 1200px;
+    --primary-color: #333; /* Dark text/header */
+    --secondary-color: #f4f4f4; /* Light background for sections */
+    --accent-color: #007bff; /* Blue for hover/focus states */
+    --font-family: 'Arial', sans-serif;
+    --max-width: 1200px;
 }
 
 * {
@@ -59,11 +59,10 @@ body {
 
 /* Hero Section: Reduced Height */
 .hero {
-.hero {
-    height: 65vh; /* Reduced height for better visibility of content below */
-    /* 💥 CRITICAL FIX: Back to no leading slash or quotes. */
-    background: url(images/hero.jpg) no-repeat center center/cover;
-    display: flex;
+    height: 65vh; /* Reduced height for better visibility of content below */
+    /* FIX: Corrected URL path and removed duplicate selector. Absolute path for safety. */
+    background: url(/images/hero.jpg) no-repeat center center/cover;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -138,4 +137,160 @@ section h2::after {
 .portfolio-item img {
     width: 100%;
     height: 300px; /* Fixed height for consistent look */
-    object-fit: cover; /* Maintain
+    object-fit: cover; /* Maintain aspect ratio and fill space (cropping if needed) */
+    display: block;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.portfolio-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* -------------------- Sports & Game Galleries -------------------- */
+.sport-grid, .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Larger, proportional thumbnails */
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.sport-item a, .game-item a {
+    text-decoration: none;
+    color: var(--primary-color);
+    display: block;
+    transition: transform 0.3s;
+}
+
+.sport-item a:hover, .game-item a:hover {
+    transform: translateY(-5px);
+}
+
+.sport-item img, .game-item img {
+    width: 100%;
+    aspect-ratio: 4/3; /* Proportional image size */
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sport-item h3, .game-item h4 {
+    margin-top: 0.75rem;
+    font-size: 1.25rem;
+}
+
+/* -------------------- Individual Game Photos (Moderately Larger Grid) -------------------- */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Moderately larger columns */
+    gap: 0.5rem; /* Less whitespace */
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 100%; /* Fill the grid area */
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.photo-grid img:hover {
+    opacity: 0.8;
+}
+
+/* -------------------- Contact Form -------------------- */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background: var(--accent-color);
+}
+
+/* -------------------- Footer -------------------- */
+.footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* -------------------- Responsiveness -------------------- */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    section {
+        padding: 3rem 0;
+    }
+    .nav-links a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+    }
+    .portfolio-item img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header-nav .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        margin-top: 1rem;
+    }
+    .nav-links a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
